@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+
+<h1>User List</h1>
+<ul>
+    {% for user in users %}
+        <li><a class="details" href="{% url 'user_detail' user.pk %}">{{ user.name }}</a></li>
+    {% empty %}
+        <li>No users found</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'user_create' %}">Create New User</a>
